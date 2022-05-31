@@ -22,13 +22,20 @@ async function run() {
       return;
     }
     let { CHECKS, LABEL, MESSAGES } = JSON.parse(config);
-    LABEL.name = LABEL.name || "title needs formatting";
+    LABEL.name = LABEL.name || "Gitemoji missing";
     LABEL.color = LABEL.color || "eee";
     CHECKS.ignoreLabels = CHECKS.ignoreLabels || [];
     MESSAGES = MESSAGES || {};
     MESSAGES.success = MESSAGES.success || "All OK";
     MESSAGES.failure = MESSAGES.failure || "Failing CI test";
     MESSAGES.notice = MESSAGES.notice || "";
+
+    if(title.toLowerCase().includes("feature")){
+      pullRequest.title =  '🎉' + pullRequest.title
+    }
+    if(title.toLowerCase().includes("fix")){
+      pullRequest.title =  '🐛' + pullRequest.title
+    }
 
     for (let i = 0; i < labels.length; i++) {
       for (let j = 0; j < CHECKS.ignoreLabels.length; j++) {
