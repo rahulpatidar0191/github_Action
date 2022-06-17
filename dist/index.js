@@ -11,14 +11,14 @@ __nccwpck_require__.r(__webpack_exports__);
 // EXTERNAL MODULE: ../../../AppData/Roaming/npm/node_modules/@vercel/ncc/dist/ncc/@@notfound.js?@actions/core
 var core = __nccwpck_require__(389);
 // EXTERNAL MODULE: ../../../AppData/Roaming/npm/node_modules/@vercel/ncc/dist/ncc/@@notfound.js?@actions/github
-var github = __nccwpck_require__(977);
+var _notfound_actions_github = __nccwpck_require__(977);
 ;// CONCATENATED MODULE: ./pr-title-checker-config.json
 const pr_title_checker_config_namespaceObject = JSON.parse('{"LABEL":{"name":"Gitmoji missing","color":"EEEEEE"},"CHECKS":{"prefixes":["🎉",":tada:","🔖",":bookmark:","👥",":busts_in_silhouette:","📄",":page_facing_up:","✨",":sparkles:","👽️",":alien:","🚚",":truck:","🏗️",":building_construction:","🔧",":wrench:","🔨",":hammer:","💥",":collision:","🗃️",":card_file_box:","👔",":necktie:","🛂",":passport_control:","🐛",":bug:","🚑️",":ambulance:","🚨",":rotating_light:","✏️",":pencil2:","🔒️",":lock:","🩹",":adhesive_bandage:","➕",":heavy_plus_sign:","➖",":heavy_minus_sign:","⬇️",":arrow_down:","⬆️",":arrow_up:","📌",":pushpin:","🎨",":art:","⚡️",":zap:","♻️",":recycle:","🔥",":fire:","⚰️",":coffin:","🥅",":goal_net:","🗑️",":wastebasket:","💡",":bulb:","🧑‍💻",":technologist:","🚸",":children_crossing:","📱",":iphone:","🍱",":bento:","♿️",":wheelchair:","💄",":lipstick:","💫",":dizzy:","👷",":construction_worker:","💚",":green_heart:","🚀",":rocket:","🩺",":stethoscope:","🧱",":bricks:","🙈",":see_no_evil:","⏪️",":rewind:","🔀",":twisted_rightwards_arrows:","📝",":memo:","✅",":white_check_mark:","🌐",":globe_with_meridians:","💬",":speech_balloon:","🔊",":loud_sound:","🔇",":mute:","🏷️",":label:","🧪",":test_tube","📈",":chart_with_upwards_trend:","🧐",":monocle_face:","🌱",":seedling:"],"ignoreLabels":[" "]},"MESSAGES":{"success":"All OK","failure":"Failing CI test","notice":""}}');
 ;// CONCATENATED MODULE: ./index.js
 
 
 const [owner, repo] = process.env.GITHUB_REPOSITORY.split("/");
-const issue_number = github.context.issue.number;
+const issue_number = _notfound_actions_github.context.issue.number;
 //const configPath = process.env.INPUT_CONFIGURATION_PATH;
 const passOnOctokitError = process.env.INPUT_PASS_ON_OCTOKIT_ERROR === "true";
 const { Octokit } = __nccwpck_require__(386);
@@ -29,12 +29,13 @@ let octokit;
 // most @actions toolkit packages have async methods
 async function run() {
   try {
-    const title = github.context.payload.pull_request.title;
-    const labels = github.context.payload.pull_request.labels;
+    const title = _notfound_actions_github.context.payload.pull_request.title;
+    const labels = _notfound_actions_github.context.payload.pull_request.labels;
 
     let config;
     try {
-      config = await getJSON(pr_title_checker_config_namespaceObject);
+      //config = await getJSON(configPath);
+      config = pr_title_checker_config_namespaceObject
     } catch (e) {
       core.setFailed(`Couldn't retrieve the config file specified - ${e}`);
       return;
