@@ -17,7 +17,8 @@ async function run() {
 
     let config;
     try {
-      config = await getJSON(configPath);
+      //config = await getJSON(configPath);
+      config = configPath
     } catch (e) {
       core.setFailed(`Couldn't retrieve the config file specified - ${e}`);
       return;
