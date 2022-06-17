@@ -5,7 +5,7 @@ const issue_number = github.context.issue.number;
 //const configPath = process.env.INPUT_CONFIGURATION_PATH;
 const passOnOctokitError = process.env.INPUT_PASS_ON_OCTOKIT_ERROR === "true";
 const { Octokit } = require("@octokit/action");
-import configPath from "./pr-title-checker-config.json"
+import configPath from "./pr-title-checker-config"
 
 let octokit;
 
