@@ -2,9 +2,10 @@ import * as core from "@actions/core";
 import * as github from "@actions/github";
 const [owner, repo] = process.env.GITHUB_REPOSITORY.split("/");
 const issue_number = github.context.issue.number;
-const configPath = process.env.INPUT_CONFIGURATION_PATH;
+//const configPath = process.env.INPUT_CONFIGURATION_PATH;
 const passOnOctokitError = process.env.INPUT_PASS_ON_OCTOKIT_ERROR === "true";
 const { Octokit } = require("@octokit/action");
+var config = require("./pr-title-checker-config.json")
 
 let octokit;
 
@@ -14,9 +15,9 @@ async function run() {
     const title = github.context.payload.pull_request.title;
     const labels = github.context.payload.pull_request.labels;
 
-    let config;
+    // let config;
     try {
-      config = await getJSON(configPath);
+        config
     } catch (e) {
       core.setFailed(`Couldn't retrieve the config file specified - ${e}`);
       return;
