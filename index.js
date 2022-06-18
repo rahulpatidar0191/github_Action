@@ -5,6 +5,7 @@ const issue_number = github.context.issue.number;
 const configPath = process.env.INPUT_CONFIGURATION_PATH;
 const passOnOctokitError = process.env.INPUT_PASS_ON_OCTOKIT_ERROR === "true";
 const { Octokit } = require("@octokit/action");
+var config = require("./pr-title-checker-config.json")
 
 let octokit;
 
@@ -16,7 +17,7 @@ async function run() {
 
     let config;
     try {
-      config = await getJSON(configPath);
+      config //= await getJSON(configPath);
     } catch (e) {
       core.setFailed(`Couldn't retrieve the config file specified - ${e}`);
       return;
