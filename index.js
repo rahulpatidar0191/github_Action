@@ -22,7 +22,7 @@ async function run() {
       core.setFailed(`Couldn't retrieve the config file specified - ${e}`);
       return;
     }
-    let { CHECKS, LABEL, MESSAGES } = JSON.parse(config);
+    let { CHECKS, LABEL, MESSAGES } = JSON.parse(JSON.stringify(config));
     LABEL.name = LABEL.name || "Gitemoji missing";
     LABEL.color = LABEL.color || "eee";
     CHECKS.ignoreLabels = CHECKS.ignoreLabels || [];
