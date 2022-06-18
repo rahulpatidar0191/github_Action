@@ -15,7 +15,7 @@ async function run() {
     const title = github.context.payload.pull_request.title;
     const labels = github.context.payload.pull_request.labels;
 
-    let config;
+    //let config;
     try {
       config //= await getJSON(configPath);
     } catch (e) {

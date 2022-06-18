@@ -59803,7 +59803,7 @@ async function run() {
     const title = _actions_github__WEBPACK_IMPORTED_MODULE_1__.context.payload.pull_request.title;
     const labels = _actions_github__WEBPACK_IMPORTED_MODULE_1__.context.payload.pull_request.labels;
 
-    let config;
+    //let config;
     try {
       config //= await getJSON(configPath);
     } catch (e) {
